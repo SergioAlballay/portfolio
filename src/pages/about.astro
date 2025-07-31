@@ -1,0 +1,175 @@
+---
+import Layout from '../layouts/Layout.astro';
+import profileData from '../data/profile.json';
+import codeCoffee from '../images/codecoffee.jpg';
+---
+
+<Layout title="About Me - QA Engineer Portfolio">
+	<!-- About Hero -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-4 text-center mb-4 mb-lg-0">
+					<img src={codeCoffee.src}
+						 alt="About me photo" 
+						 class="img-fluid rounded-circle shadow-lg"
+						 style="width: 250px; height: 250px; object-fit: cover;">
+				</div>
+				<div class="col-lg-8">
+					<h1 class="display-5 fw-bold mb-4">About Me 🎭</h1>
+					<p class="lead">{profileData.about.intro}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Personality Traits -->
+	<section class="py-5">
+		<div class="container">
+			<h2 class="section-title mb-5">What Makes Me Tick? ⚙️</h2>
+			<div class="row g-4">
+				{profileData.about.personality.map((trait, index) => (
+					<div class="col-md-6">
+						<div class="fun-card card h-100 border-0 shadow-sm">
+							<div class="card-body p-4">
+								<div class="d-flex align-items-start">
+									<div class="contact-icon me-3 flex-shrink-0">
+										<i class={`fas ${index === 0 ? 'fa-search' : index === 1 ? 'fa-users' : index === 2 ? 'fa-graduation-cap' : 'fa-puzzle-piece'}`}></i>
+									</div>
+									<p class="mb-0">{trait}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Fun Facts Expanded -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<h2 class="section-title mb-5">Fun Facts About Me 🎉</h2>
+			<div class="row g-4">
+				{profileData.about.funFacts.map((fact, index) => (
+					<div class="col-lg-4 col-md-6">
+						<div class="fun-card card h-100 text-center border-0 shadow-sm">
+							<div class="card-body p-4">
+								<div class="fs-1 mb-3">{fact.split(' ')[0]}</div>
+								<p class="card-text">{fact.substring(fact.indexOf(' ') + 1)}</p>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Work Philosophy -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto text-center">
+					<h2 class="section-title mb-5">My Testing Philosophy 🧠</h2>
+					<div class="row g-4">
+						<div class="col-md-4">
+							<div class="fun-card card border-0 shadow-sm h-100">
+								<div class="card-body p-4 text-center">
+									<i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+									<h4>Quality First</h4>
+									<p class="mb-0">Every line of code deserves thorough testing. Quality isn't negotiable.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="fun-card card border-0 shadow-sm h-100">
+								<div class="card-body p-4 text-center">
+									<i class="fas fa-rocket fa-3x text-success mb-3"></i>
+									<h4>Continuous Improvement</h4>
+									<p class="mb-0">Always learning, always growing, always finding better ways to test.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="fun-card card border-0 shadow-sm h-100">
+								<div class="card-body p-4 text-center">
+									<i class="fa-solid fa-arrow-left fa-3x text-info mb-3"></i>
+									<h4>Shifting Left</h4>
+									<p class="mb-0">Catching issues early when they're cheap to fix, not expensive to patch. Quality isn't something you test into a product; it's something you build into the process.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="fun-card card border-0 shadow-sm h-100">
+								<div class="card-body p-4 text-center">
+									<i class="fas fa-users fa-3x text-warning mb-3"></i>
+									<h4>Team Collaboration</h4>
+									<p class="mb-0">Great software is built by great teams working together.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="fun-card card border-0 shadow-sm h-100">
+								<div class="card-body p-4 text-center">
+									<i class="fa-solid fa-robot fa-3x text-dark mb-3"></i>
+									<h4>Automation Wizard</h4>
+									<p class="mb-0">Repetitive tasks should be automated to eliminate human error as much as possible.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="fun-card card border-0 shadow-sm h-100">
+								<div class="card-body p-4 text-center">
+									<i class="fa-solid fa-user-shield fa-3x text-danger mb-3"></i>
+									<h4>Security Guardian</h4>
+									<p class="mb-0">CompTIA Security+ certified with a knack for thinking like an attacker to defend like a champion.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Personal Interests -->
+	<section class="py-5 bg-primary text-white">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto text-center">
+					<h2 class="mb-5">When I'm Not Breaking Software...</h2>
+					<div class="row g-4">
+						<div class="col-md-3 col-6">
+							<div class="text-center">
+								<i class="fas fa-burger fa-3x mb-3"></i>
+								<h5>Cooking</h5>
+								<p class="mb-0">Grilling and baking!</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-6">
+							<div class="text-center">
+								<i class="fas fa-coffee fa-3x mb-3"></i>
+								<h5>Coffee</h5>
+								<p class="mb-0">Fuel for debugging sessions</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-6">
+							<div class="text-center">
+								<i class="fas fa-book fa-3x mb-3"></i>
+								<h5>Learning</h5>
+								<p class="mb-0">Always exploring new tech</p>
+							</div>
+						</div>
+						<div class="col-md-3 col-6">
+							<div class="text-center">
+								<i class="fas fa-terminal fa-3x mb-3"></i>
+								<h5>Technology</h5>
+								<p class="mb-0">I love my tech, and working on my homelab</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

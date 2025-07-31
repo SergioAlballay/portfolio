@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+import profileData from '../data/profile.json';
+---
+
+<Layout title="Resume - QA Engineer Portfolio">
+	<!-- Resume Header -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto text-center">
+					<h1 class="display-5 fw-bold mb-3">Resume 📄</h1>
+					<p class="lead mb-4">My professional journey in quality assurance</p>
+					<a href="/alballay_qe_cv.pdf" download="SergioAlballay_cv.pdf" class="btn btn-primary btn-lg">
+						<i class="fas fa-download me-2"></i>Download PDF
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Professional Summary -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+					<div class="fun-card card border-0 shadow-sm mb-5">
+						<div class="card-body p-4">
+							<h2 class="section-title mb-4">Professional Summary 🎯</h2>
+							<p class="lead">{profileData.about.professionalSummary}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+		<!-- Skills -->
+	<section class="py-4">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+					<h2 class="section-title mb-5">Technical Skills 🛠️</h2>
+					<div class="fun-card card border-0 shadow-sm mb-4">
+						<div class="card-body p-4">
+							<h3 class="h5 mb-3">
+								<i class="fas fa-code text-primary me-2"></i>Technical Expertise
+							</h3>
+							<div class="d-flex flex-wrap">
+								{profileData.skills.techResume.map(skill => (
+									<span class="skill-badge">{skill}</span>
+								))}
+							</div>
+						</div>
+					</div>
+					<div class="fun-card card border-0 shadow-sm">
+						<div class="card-body p-4">
+							<h3 class="h5 mb-3">
+								<i class="fas fa-heart text-danger me-2"></i>Soft Skills
+							</h3>
+							<div class="d-flex flex-wrap">
+								{profileData.skills.soft.map(skill => (
+									<span class="skill-badge">{skill}</span>
+								))}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Experience -->
+	<section class="py-4 bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+					<h2 class="section-title mb-5">Professional Experience 💼</h2>
+					{profileData.experience.map((job, index) => (
+						<div class="fun-card card border-0 shadow-sm mb-4">
+							<div class="card-body p-4">
+								<div class="d-flex justify-content-between align-items-start mb-3">
+									<div>
+										<h3 class="h4 mb-1">{job.title}</h3>
+										<h4 class="h5 text-primary mb-0">{job.company}</h4>
+									</div>
+									<span class="badge bg-secondary fs-6">{job.duration}</span>
+								</div>
+								<p class="mb-3">{job.description}</p>
+								<h5 class="h6 mb-2">Key Achievements:</h5>
+								<ul class="list-unstyled">
+									{job.achievements.map(achievement => (
+										<li class="mb-1">
+											<i class="fas fa-check-circle text-success me-2"></i>
+											{achievement}
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Education & Certifications -->
+
+	<section class="py-5 bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+					<div class="row g-4">
+						<div class="col-md-6">
+							<h2 class="section-title mb-4">Education 🎓</h2>
+							{profileData.education.map(edu => (
+								<div class="fun-card card border-0 shadow-sm">
+									<div class="card-body p-4">
+										<h3 class="h5 mb-2">{edu.degree}</h3>
+										<h4 class="h6 text-primary mb-2">{edu.school}</h4>
+										<p class="text-muted mb-2">Class of {edu.year}</p>
+										<p class="mb-0 small">{edu.details}</p>
+									</div>
+								</div>
+							))}
+						</div>
+						<div class="col-md-6">
+							<h2 class="section-title mb-4">Certifications 🏆</h2>
+							<div class="fun-card card border-0 shadow-sm">
+								<div class="card-body p-4">
+									{profileData.certifications.map(cert => (
+										<div class="d-flex align-items-center mb-3">
+											<i class="fas fa-certificate text-warning me-3"></i>
+											<span>{cert}</span>
+										</div>
+									))}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Projects -->
+	<!-- <section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+					<h2 class="section-title mb-5">Featured Projects 🚀</h2>
+					{profileData.projects.map(project => (
+						<div class="fun-card card border-0 shadow-sm mb-4">
+							<div class="card-body p-4">
+								<h3 class="h4 mb-3">{project.name}</h3>
+								<p class="mb-3">{project.description}</p>
+								<div class="mb-3">
+									<strong>Technologies:</strong>
+									{project.technologies.map(tech => (
+										<span class="badge bg-secondary me-1 ms-1">{tech}</span>
+									))}
+								</div>
+								<div class="text-success">
+									<i class="fas fa-chart-line me-2"></i>
+									<strong>Impact:</strong> {project.impact}
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section> -->
+</Layout>
+
+<style>
+	@media print {
+		.navbar, footer, .btn {
+			display: none !important;
+		}
+		
+		.fun-card {
+			box-shadow: none !important;
+			border: 1px solid #ddd !important;
+		}
+		
+		body {
+			padding-top: 0 !important;
+		}
+	}
+</style>

@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+import profileData from '../data/profile.json';
+---
+
+<Layout title="Contact Me - QA Engineer Portfolio">
+	<!-- Contact Hero -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto text-center">
+					<h1 class="display-5 fw-bold mb-3">Let's Connect! 🤝</h1>
+					<p class="lead mb-4">Ready to discuss how we can build amazing software together? I'd love to hear from you!</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Information -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row g-4">
+				<div class="col-lg-4">
+					<div class="fun-card card border-0 shadow-sm h-100 text-center">
+						<div class="card-body p-4">
+							<div class="contact-icon mx-auto">
+								<i class="fas fa-envelope"></i>
+							</div>
+							<h3 class="h5 mb-3">Email Me</h3>
+							<p class="mb-3">Drop me a line anytime!</p>
+							<a href={`mailto:${profileData.personal.email}`} class="btn btn-outline-primary">
+								{profileData.personal.email}
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="fun-card card border-0 shadow-sm h-100 text-center">
+						<div class="card-body p-4">
+							<div class="contact-icon mx-auto">
+								<i class="fas fa-phone"></i>
+							</div>
+							<h3 class="h5 mb-3">Call Me</h3>
+							<p class="mb-3">Let's have a chat!</p>
+							<a href={`tel:${profileData.personal.phone}`} class="btn btn-outline-primary">
+								{profileData.personal.phone}
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="fun-card card border-0 shadow-sm h-100 text-center">
+						<div class="card-body p-4">
+							<div class="contact-icon mx-auto">
+								<i class="fas fa-map-marker-alt"></i>
+							</div>
+							<h3 class="h5 mb-3">Location</h3>
+							<p class="mb-3">Based in</p>
+							<p class="btn btn-outline-primary disabled">
+								{profileData.personal.location}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Social Links -->
+	<section class="py-5 bg-light">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto text-center">
+					<h2 class="section-title mb-5">Find Me Online 🌐</h2>
+					<div class="row g-4">
+						<div class="col-md-4">
+							<div class="fun-card card border-0 shadow-sm h-100">
+								<div class="card-body p-4 text-center">
+									<i class="fab fa-linkedin fa-3x text-primary mb-3"></i>
+									<h4 class="h5">LinkedIn</h4>
+									<p class="mb-3">Professional network & updates</p>
+									<a href={profileData.personal.linkedin} target="_blank" class="btn btn-primary">
+										Connect
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="fun-card card border-0 shadow-sm h-100">
+								<div class="card-body p-4 text-center">
+									<i class="fab fa-github fa-3x text-dark mb-3"></i>
+									<h4 class="h5">GitHub</h4>
+									<p class="mb-3">Check out my code & projects</p>
+									<a href={profileData.personal.github} target="_blank" class="btn btn-dark">
+										Follow
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="fun-card card border-0 shadow-sm h-100">
+								<div class="card-body p-4 text-center">
+									<i class="fas fa-globe fa-3x text-success mb-3"></i>
+									<h4 class="h5">Website</h4>
+									<p class="mb-3">My personal corner of the web</p>
+									<a href={profileData.personal.website} target="_blank" class="btn btn-success">
+										Visit
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Form -->
+	<section class="py-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 mx-auto">
+					<div class="fun-card card border-0 shadow-sm">
+						<div class="card-body p-5">
+							<h2 class="section-title mb-4 text-center">Send Me a Message 💌</h2>
+							<form id="contactForm">
+								<div class="row g-3">
+									<div class="col-md-6">
+										<label for="name" class="form-label">Name *</label>
+										<input type="text" class="form-control" id="name" required>
+									</div>
+									<div class="col-md-6">
+										<label for="email" class="form-label">Email *</label>
+										<input type="email" class="form-control" id="email" required>
+									</div>
+									<div class="col-12">
+										<label for="subject" class="form-label">Subject *</label>
+										<input type="text" class="form-control" id="subject" required>
+									</div>
+									<div class="col-12">
+										<label for="message" class="form-label">Message *</label>
+										<textarea class="form-control" id="message" rows="5" required 
+											placeholder="Tell me about your project, ask a question, or just say hi! 👋"></textarea>
+									</div>
+									<div class="col-12 text-center">
+										<button type="submit" class="btn btn-primary btn-lg">
+											<i class="fas fa-paper-plane me-2"></i>Send Message
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Fun CTA -->
+	<section class="py-5 bg-primary text-white">
+		<div class="container text-center">
+			<h2 class="mb-4">Coffee Chat? ☕</h2>
+			<p class="lead mb-4">I'm always up for a good conversation about testing, technology, or just life in general!</p>
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<div class="d-flex justify-content-center gap-3 flex-wrap">
+						<span class="badge bg-light text-dark fs-6 py-2 px-3">🐛 Bug Hunting Stories</span>
+						<span class="badge bg-light text-dark fs-6 py-2 px-3">🚀 Testing Strategies</span>
+						<span class="badge bg-light text-dark fs-6 py-2 px-3">💡 Tech Innovations</span>
+						<span class="badge bg-light text-dark fs-6 py-2 px-3">🎮 Gaming & QA</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<script>
+	document.getElementById('contactForm').addEventListener('submit', function(e) {
+		e.preventDefault();
+		
+		// Get form data
+		const name = document.getElementById('name').value;
+		const email = document.getElementById('email').value;
+		const subject = document.getElementById('subject').value;
+		const message = document.getElementById('message').value;
+		
+		// Create mailto link
+		const mailtoLink = `mailto:${document.querySelector('[href^="mailto:"]').href.split(':')[1]}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Hi! My name is ${name} (${email}).\n\n${message}`)}`;
+		
+		// Open email client
+		window.location.href = mailtoLink;
+		
+		// Show success message
+		alert('Opening your email client! If it doesn\'t open automatically, please copy the email address and send your message manually.');
+	});
+</script>
